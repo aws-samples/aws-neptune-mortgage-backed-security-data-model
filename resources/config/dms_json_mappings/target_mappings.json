@@ -1,0 +1,474 @@
+{
+    "rules": [ 
+        {
+            "rule_id": "1",
+            "rule_name": "vertex_mapping_rule_from_loan",
+            "table_name": "loan",
+            "vertex_definitions": [
+                {
+                    "vertex_id_template": "{loan_id}",
+                    "vertex_label": "loan",
+                    "vertex_definition_id": "1",
+                    "vertex_properties": [
+                        {
+                            "property_name": "original_interest_rate",
+                            "property_value_template": "{original_interest_rate}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "original_principal_balance",
+                            "property_value_template": "{original_principal_balance}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "unpaid_principal_balance",
+                            "property_value_template": "{unpaid_principal_balance}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "loan_term",
+                            "property_value_template": "{loan_term}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "maturity_date",
+                            "property_value_template": "{maturity_date}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "loan_id",
+                            "property_value_template": "{loan_id}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "loan_status",
+                            "property_value_template": "{loan_status}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "issuance_date",
+                            "property_value_template": "{issuance_date}",
+                            "property_value_type": "String"
+                        }                      
+                    ]
+                }
+            ]
+        },
+        { 
+            "rule_id": "2", 
+            "rule_name": "vertex_mapping_rule_from_loan_activity", 
+            "table_name": "loan_activity", 
+            "vertex_definitions": [ 
+                { 
+                    "vertex_id_template": "{activity_id}", 
+                    "vertex_label": "loan_activity", 
+                    "vertex_definition_id": "1", 
+                    "vertex_properties": [ 
+                        {
+                        "property_name": "loan_id", 
+                        "property_value_template": "{loan_id}", 
+                        "property_value_type": "String" 
+                        },
+                        {
+                        "property_name": "principal_pymnt", 
+                        "property_value_template": "{principal_pymnt}", 
+                        "property_value_type": "String" 
+                        },
+                        {
+                        "property_name": "int_pymnt", 
+                        "property_value_template": "{int_pymnt}", 
+                        "property_value_type": "String" 
+                        },
+                         {
+                        "property_name": "rem_mnths_to_maturity", 
+                        "property_value_template": "{rem_mnths_to_maturity}", 
+                        "property_value_type": "String" 
+                        },
+                        {
+                        "property_name": "rem_unpaid_principal_balance", 
+                        "property_value_template": "{rem_unpaid_principal_balance}", 
+                        "property_value_type": "String" 
+                        },
+                        {
+                        "property_name": "payment_date", 
+                        "property_value_template": "{payment_date}", 
+                        "property_value_type": "String" 
+                        },
+                        {
+                        "property_name": "activity_id", 
+                        "property_value_template": "{activity_id}", 
+                        "property_value_type": "String" 
+                        }
+                    ] 
+                } 
+            ] 
+        },
+        { 
+            "rule_id": "3", 
+            "rule_name": "edge_mapping_rule_from_loan", 
+            "table_name": "loan_activity", 
+            "edge_definitions": [ 
+                { 
+                    "from_vertex": 
+                    { 
+                        "vertex_id_template": "{loan_id}", 
+                        "vertex_definition_id": "1" 
+                    }, 
+                    "to_vertex": 
+                    { 
+                        "vertex_id_template": "{activity_id}", 
+                        "vertex_definition_id": "1" 
+                    }, 
+                    "edge_id_template": 
+                    { 
+                        "label": "has snapshot", 
+                        "template" : "{loan_id}_{activity_id}" 
+                    }, 
+                    "edge_properties":[ 
+                        { 
+                            "property_name": "payment_date", 
+                            "property_value_template": "{payment_date}", 
+                            "property_value_type": "String" 
+                        } 
+                    ] 
+                } 
+            ] 
+        },
+        {
+            "rule_id": "4",
+            "rule_name": "vertex_mapping_rule_from_property",
+            "table_name": "property",
+            "vertex_definitions": [
+                {
+                    "vertex_id_template": "{property_id}",
+                    "vertex_label": "property",
+                    "vertex_definition_id": "1",
+                    "vertex_properties": [
+                        {
+                            "property_name": "address_type",
+                            "property_value_template": "{address_type}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "address_1",
+                            "property_value_template": "{address_1}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "address_2",
+                            "property_value_template": "{address_2}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "city",
+                            "property_value_template": "{city}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "state",
+                            "property_value_template": "{state}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "zipcode",
+                            "property_value_template": "{zipcode}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "country",
+                            "property_value_template": "{country}",
+                            "property_value_type": "String"
+                        }                      
+                    ]
+                }
+            ]
+        },
+        { 
+            "rule_id": "5", 
+            "rule_name": "edge_mapping_rule_from_loan", 
+            "table_name": "loan_property", 
+            "edge_definitions": [ 
+                { 
+                    "from_vertex": 
+                    { 
+                        "vertex_id_template": "{loan_id}", 
+                        "vertex_definition_id": "1" 
+                    }, 
+                    "to_vertex": 
+                    { 
+                        "vertex_id_template": "{property_id}", 
+                        "vertex_definition_id": "1" 
+                    }, 
+                    "edge_id_template": 
+                    { 
+                        "label": "is collateralized by", 
+                        "template" : "{loan_id}_{property_id}" 
+                    }, 
+                    "edge_properties":[ 
+                        { 
+                            "property_name": "property_id", 
+                            "property_value_template": "{property_id}", 
+                            "property_value_type": "String" 
+                        } 
+                    ] 
+                } 
+            ] 
+        },
+        {
+            "rule_id": "6",
+            "rule_name": "vertex_mapping_rule_from_seller",
+            "table_name": "seller",
+            "vertex_definitions": [
+                {
+                    "vertex_id_template": "{seller_id}",
+                    "vertex_label": "seller",
+                    "vertex_definition_id": "1",
+                    "vertex_properties": [
+                        {
+                            "property_name": "name",
+                            "property_value_template": "{name}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "id",
+                            "property_value_template": "{seller_id}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "status",
+                            "property_value_template": "{status}",
+                            "property_value_type": "String"
+                        }             
+                    ]
+                }
+            ]
+        },
+        { 
+            "rule_id": "7", 
+            "rule_name": "edge_mapping_rule_from_seller", 
+            "table_name": "loan_seller", 
+            "edge_definitions": [ 
+                { 
+                    "from_vertex": 
+                    { 
+                        "vertex_id_template": "{seller_id}", 
+                        "vertex_definition_id": "1" 
+                    }, 
+                    "to_vertex": 
+                    { 
+                        "vertex_id_template": "{loan_id}", 
+                        "vertex_definition_id": "1" 
+                    }, 
+                    "edge_id_template": 
+                    { 
+                        "label": "originates loan", 
+                        "template" : "{seller_id}_{loan_id}" 
+                    }, 
+                    "edge_properties":[ 
+                        { 
+                            "property_name": "loan_id", 
+                            "property_value_template": "{loan_id}", 
+                            "property_value_type": "String" 
+                        },
+                        { 
+                            "property_name": "seller_id", 
+                            "property_value_template": "{seller_id}", 
+                            "property_value_type": "String" 
+                        } 
+                    ] 
+                } 
+            ] 
+        },
+        {
+            "rule_id": "8",
+            "rule_name": "vertex_mapping_rule_from_servicer",
+            "table_name": "servicer",
+            "vertex_definitions": [
+                {
+                    "vertex_id_template": "{servicer_id}",
+                    "vertex_label": "servicer",
+                    "vertex_definition_id": "1",
+                    "vertex_properties": [
+                        {
+                            "property_name": "name",
+                            "property_value_template": "{name}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "id",
+                            "property_value_template": "{servicer_id}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "status",
+                            "property_value_template": "{status}",
+                            "property_value_type": "String"
+                        }
+                    ]
+                }
+            ]
+        },
+        { 
+            "rule_id": "9", 
+            "rule_name": "edge_mapping_rule_from_servicer", 
+            "table_name": "loan_servicer", 
+            "edge_definitions": [ 
+                { 
+                    "from_vertex": 
+                    { 
+                        "vertex_id_template": "{servicer_id}", 
+                        "vertex_definition_id": "1" 
+                    }, 
+                    "to_vertex": 
+                    { 
+                        "vertex_id_template": "{loan_id}", 
+                        "vertex_definition_id": "1" 
+                    }, 
+                    "edge_id_template": 
+                    { 
+                        "label": "services loan", 
+                        "template" : "{servicer_id}_{loan_id}" 
+                    }, 
+                    "edge_properties":[ 
+                        { 
+                            "property_name": "servicer_id", 
+                            "property_value_template": "{servicer_id}", 
+                            "property_value_type": "String" 
+                        },
+                        { 
+                            "property_name": "loan_id", 
+                            "property_value_template": "{loan_id}", 
+                            "property_value_type": "String" 
+                        } 
+                    ] 
+                } 
+            ] 
+        },
+        {
+            "rule_id": "10",
+            "rule_name": "vertex_mapping_rule_from_borrower",
+            "table_name": "borrower",
+            "vertex_definitions": [
+                {
+                    "vertex_id_template": "{borrower_d}",
+                    "vertex_label": "borrower",
+                    "vertex_definition_id": "1",
+                    "vertex_properties": [
+                        {
+                            "property_name": "first_name",
+                            "property_value_template": "{first_name}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "middle_name",
+                            "property_value_template": "{middle_name}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "last_name",
+                            "property_value_template": "{last_name}",
+                            "property_value_type": "String"
+                        }
+                    ]
+                }
+            ]
+        },
+        { 
+            "rule_id": "11", 
+            "rule_name": "edge_mapping_rule_from_loan_borrower", 
+            "table_name": "loan_borrower", 
+            "edge_definitions": [ 
+                { 
+                    "from_vertex": 
+                    { 
+                        "vertex_id_template": "{loan_id}", 
+                        "vertex_definition_id": "1" 
+                    }, 
+                    "to_vertex": 
+                    { 
+                        "vertex_id_template": "{borrower_d}", 
+                        "vertex_definition_id": "1" 
+                    }, 
+                    "edge_id_template": 
+                    { 
+                        "label": "has borrower", 
+                        "template" : "{loan_id}_{borrower_d}" 
+                    }, 
+                    "edge_properties":[ 
+                        { 
+                            "property_name": "loan_id", 
+                            "property_value_template": "{loan_id}", 
+                            "property_value_type": "String" 
+                        },
+                        { 
+                            "property_name": "borrower_id", 
+                            "property_value_template": "{borrower_id}", 
+                            "property_value_type": "String" 
+                        } 
+                    ] 
+                } 
+            ] 
+        },
+        {
+            "rule_id": "12",
+            "rule_name": "vertex_mapping_rule_from_security",
+            "table_name": "security",
+            "vertex_definitions": [
+                {
+                    "vertex_id_template": "{cusip}",
+                    "vertex_label": "security",
+                    "vertex_definition_id": "1",
+                    "vertex_properties": [
+                        {
+                            "property_name": "security_value",
+                            "property_value_template": "{security_value}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "issued_by",
+                            "property_value_template": "{issued_by}",
+                            "property_value_type": "String"
+                        },
+                        {
+                            "property_name": "issued_date",
+                            "property_value_template": "{issued_date}",
+                            "property_value_type": "String"
+                        }
+                    ]
+                }
+            ]
+        },
+        { 
+            "rule_id": "13", 
+            "rule_name": "edge_mapping_rule_from_security_loan", 
+            "table_name": "loan_security", 
+            "edge_definitions": [ 
+                { 
+                    "from_vertex": 
+                    { 
+                        "vertex_id_template": "{cusip}", 
+                        "vertex_definition_id": "1" 
+                    }, 
+                    "to_vertex": 
+                    { 
+                        "vertex_id_template": "{loan_id}", 
+                        "vertex_definition_id": "1" 
+                    }, 
+                    "edge_id_template": 
+                    { 
+                        "label": "has securitized loan", 
+                        "template" : "{cusip}_{loan_id}" 
+                    }, 
+                    "edge_properties":[ 
+                        { 
+                            "property_name": "percentage", 
+                            "property_value_template": "{percentage}", 
+                            "property_value_type": "String" 
+                        }
+                    ] 
+                } 
+            ] 
+        }
+
+    ] 
+}

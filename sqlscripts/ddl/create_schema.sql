@@ -1,0 +1,1 @@
+CREATE SCHEMA mbs AUTHORIZATION postgres;

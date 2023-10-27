@@ -1,0 +1,114 @@
+{
+  "rules": [
+    {
+      "rule-type": "selection",
+      "rule-id": "270170171",
+      "rule-name": "270170171",
+      "object-locator": {
+        "schema-name": "mbs",
+        "table-name": "loan_servicer"
+      },
+      "rule-action": "include",
+      "filters": []
+    },
+    {
+      "rule-type": "selection",
+      "rule-id": "270157840",
+      "rule-name": "270157840",
+      "object-locator": {
+        "schema-name": "mbs",
+        "table-name": "servicer"
+      },
+      "rule-action": "include",
+      "filters": []
+    },
+    {
+      "rule-type": "selection",
+      "rule-id": "251693158",
+      "rule-name": "251693158",
+      "object-locator": {
+        "schema-name": "mbs",
+        "table-name": "loan_security"
+      },
+      "rule-action": "include",
+      "filters": []
+    },
+    {
+      "rule-type": "selection",
+      "rule-id": "251680227",
+      "rule-name": "251680227",
+      "object-locator": {
+        "schema-name": "mbs",
+        "table-name": "security"
+      },
+      "rule-action": "include",
+      "filters": []
+    },
+    {
+      "rule-type": "selection",
+      "rule-id": "247067927",
+      "rule-name": "247067927",
+      "object-locator": {
+        "schema-name": "mbs",
+        "table-name": "loan_property"
+      },
+      "rule-action": "include",
+      "filters": []
+    },
+    {
+      "rule-type": "selection",
+      "rule-id": "247056265",
+      "rule-name": "247056265",
+      "object-locator": {
+        "schema-name": "mbs",
+        "table-name": "loan_seller"
+      },
+      "rule-action": "include",
+      "filters": []
+    },
+    {
+      "rule-type": "selection",
+      "rule-id": "247003917",
+      "rule-name": "247003917",
+      "object-locator": {
+        "schema-name": "mbs",
+        "table-name": "property"
+      },
+      "rule-action": "include",
+      "filters": []
+    },
+    {
+      "rule-type": "selection",
+      "rule-id": "246978764",
+      "rule-name": "246978764",
+      "object-locator": {
+        "schema-name": "mbs",
+        "table-name": "seller"
+      },
+      "rule-action": "include",
+      "filters": []
+    },
+    {
+      "rule-type": "selection",
+      "rule-id": "228642416",
+      "rule-name": "228642416",
+      "object-locator": {
+        "schema-name": "mbs",
+        "table-name": "loan"
+      },
+      "rule-action": "include",
+      "filters": []
+    },
+    {
+      "rule-type": "selection",
+      "rule-id": "239126212",
+      "rule-name": "239126212",
+      "object-locator": {
+        "schema-name": "mbs",
+        "table-name": "loan_activity"
+      },
+      "rule-action": "include",
+      "filters": []
+    }
+  ]
+}
