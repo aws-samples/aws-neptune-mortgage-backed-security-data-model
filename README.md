@@ -43,30 +43,29 @@ The solution comprises:
 git clone git@ssh.gitlab.aws.dev:vkpaws-scsaws/mbs-modeling-in-neptune.git
 ```
 
-2. Change directory to aws-neptune-mortgage-backed-security-data-model
-```
-cd aws-neptune-mortgage-backed-security-data-model
-```
-
-3. Login to AWS account (AWS CLI) where you want to deploy the CDK stack resources
-
-4. Create a virtual environment on MacOS / Linux and activate the same.
+2. Create a virtual environment on MacOS / Linux and activate the same.
 ```
 python3 -m venv .venv
+```
 
+For MacOS / Linux activation run:
+
+```
 source .venv/bin/activate
+```
 
-(OR)
+For Windows activation run:
 
+```
 .venv\Scripts\activate.bat
 ```
 
-5. Install the python dependent packages
+3. Install the python dependent packages
 ```
 pip install -r requirements.txt
 ```
 
-6. Execute the following commands to bootstrap AWS environment
+4. Execute the following commands to bootstrap AWS environment
 ```
 #get account number using below command
 aws sts get-caller-identity --query Account --output text
@@ -79,9 +78,9 @@ aws configure set region us-east-1
 cdk bootstrap aws://<ACCOUNT-NUMBER>/us-east-1
 ```
 
-7. Reminder: verify if Docker daemon is running
+5. Verify if Docker daemon is running
 
-8. Deploy the CDK project ( this process could take time more or less 30 minutes )
+6. Deploy the CDK project ( this process could take time more or less 30 minutes )
 ```
 cdk deploy --all --require-approval never
 ```
@@ -92,7 +91,7 @@ cdk deploy --all --require-approval never
 To avoid incurring ongoing charges, clean up the infrastructure by executing the following :
 
 ```
-cdk destroy -—all -—require-approval never
+cdk destroy --all
 ```
 
 
