@@ -43,9 +43,9 @@ The solution comprises:
 git clone git@ssh.gitlab.aws.dev:vkpaws-scsaws/mbs-modeling-in-neptune.git
 ```
 
-2. Change directory to mbs-modeling-in-neptune
+2. Change directory to aws-neptune-mortgage-backed-security-data-model
 ```
-cd mbs-modeling-in-neptune
+cd aws-neptune-mortgage-backed-security-data-model
 ```
 
 3. Login to AWS account (AWS CLI) where you want to deploy the CDK stack resources
@@ -92,7 +92,7 @@ cdk deploy --all --require-approval never
 To avoid incurring ongoing charges, clean up the infrastructure by executing the following :
 
 ```
-cdk destroy —all —require-approval never
+cdk destroy -—all -—require-approval never
 ```
 
 

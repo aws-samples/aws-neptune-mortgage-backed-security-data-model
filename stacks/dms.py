@@ -47,6 +47,7 @@ class DMSStack(Stack):
         # boto3 client for Secrets Manager
         sm_client = boto3.client("secretsmanager")
 
+        print(vpc.to_string())
         subnet_ids = []
         selection = vpc.select_subnets(subnet_type=ec2.SubnetType.PRIVATE_WITH_EGRESS)
         for subnet in selection.subnets:
@@ -63,6 +64,7 @@ class DMSStack(Stack):
                 replication_subnet_group_description='DMS replication subnet group',
                 subnet_ids=subnet_ids
         )
+
         #create a security group 
         security_group_db = ec2.SecurityGroup(
             self,
@@ -93,8 +95,8 @@ class DMSStack(Stack):
                     replication_instance_identifier=replInstIdentifier,
                     replication_instance_class=dms_instance_class,
                     publicly_accessible=False,
-                    #replication_subnet_group_identifier=subnet.ref,
-                    replication_subnet_group_identifier=replication_subnet_group_identifier,                    
+                    replication_subnet_group_identifier=subnet.ref,
+                    #replication_subnet_group_identifier=replication_subnet_group_identifier                   
                     vpc_security_group_ids=[security_group_db.security_group_id],
                     auto_minor_version_upgrade=True,
                     multi_az=False,
