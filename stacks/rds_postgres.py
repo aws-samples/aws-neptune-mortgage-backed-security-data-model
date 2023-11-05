@@ -15,6 +15,9 @@
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import aws_cdk as cdk
+import json
+from constructs import Construct
+
 
 from aws_cdk import (
     aws_ec2 as ec2,
@@ -24,12 +27,9 @@ from aws_cdk import (
     aws_cloudwatch as cloudwatch,
     aws_secretsmanager as sm,
     aws_kms as kms,
-    Stack,    
+    Stack
 )
-import json
-#from aws_cdk import Duration, RemovalPolicy
 
-from constructs import Construct
 
 class RDSPostgresStack(Stack):
     """
@@ -50,7 +50,7 @@ class RDSPostgresStack(Stack):
         super().__init__(scope, id, **kwargs)
 
         #core variables
-        aurora_engine = rds.DatabaseClusterEngine.aurora_postgres(version=rds.AuroraPostgresEngineVersion.VER_13_4)
+        aurora_engine = rds.DatabaseClusterEngine.aurora_postgres(version=rds.AuroraPostgresEngineVersion.VER_14_6)
         instance_type = ec2.InstanceType.of(ec2.InstanceClass.T3, ec2.InstanceSize.MEDIUM)
         
        
@@ -119,7 +119,7 @@ class RDSPostgresStack(Stack):
                 "vpc": vpc,
                 "security_groups": [security_group_db],
             },
-            credentials=aurora_cluster_credentials,
+            credentials=aurora_cluster_credentials
         )
         
         cdk.CfnOutput(
