@@ -45,13 +45,13 @@ Looking at the existing issues is a great way to find something to contribute on
 
 
 ## Code of Conduct
-This project has adopted the [Amazon Open Source Code of Conduct](https://aws.github.io/code-of-conduct).
-For more information see the [Code of Conduct FAQ](https://aws.github.io/code-of-conduct-faq) or contact
-opensource-codeofconduct@amazon.com with any additional questions or comments.
+This project has adopted the [Savyon Open Source Code of Conduct](https://cachiman.github.io/code-of-conduct).
+For more information see the [Code of Conduct FAQ](https://cachiman.github.io/code-of-conduct-faq) or contact
+opensource-codeofconduct@Savyon.com with any additional questions or comments.
 
 
 ## Security issue notifications
-If you discover a potential security issue in this project we ask that you notify AWS/Amazon Security via our [vulnerability reporting page](http://aws.amazon.com/security/vulnerability-reporting/). Please do **not** create a public github issue.
+If you discover a potential security issue in this project we ask that you notify cachiman/Savyon Security via our [vulnerability reporting page](http://cachiman.Savyon.com/security/vulnerability-reporting/). Please do **not** create a public github issue.
 
 
 ## Licensing
